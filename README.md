@@ -51,6 +51,14 @@ npx tsx src/index.ts 1A4FF0100000022000000102   # crude lot, on hold, no results
 
 Output is the final graph state: package data, lab results, matched regulations, and the structured recommendation.
 
+## Tests
+
+```bash
+npm test
+```
+
+Three known-answer runs against the mocked METRC instance. The first — an unknown package label — exercises both MCP servers and asserts the graph short-circuits to END with a readable error before reaching the evaluate node, so it costs no API call. The other two assert the decisions for the fixtures below; they require `ANTHROPIC_API_KEY` and skip cleanly without it.
+
 ## What the two fixtures demonstrate
 
 **Package `…102`** is the obvious hold: flagged `IsOnHold`, `LabTestingState: SubmittedForTesting`, empty results array. The agent holds it, citing 915 KAR 1:040 §7's requirement that all testing pass before packaging.
