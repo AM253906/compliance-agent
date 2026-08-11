@@ -4,7 +4,7 @@
   "description": "LangGraph compliance agent orchestrating METRC and regulatory MCP servers to produce cited release/hold recommendations",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "tsx --test test/agent.test.ts",
     "dev": "tsx src/index.ts",
     "build": "tsc",
     "start": "node dist/index.js"
